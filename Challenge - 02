@@ -1,0 +1,17 @@
+Two Sum Indices
+This challenge tests your ability to efficiently find two numbers in a list that add up to a given target value. The solution must run in linear time (O(n)) to handle large inputs effectively.
+
+Solution
+The efficient approach uses a HashMap (or Dictionary) to store numbers and their indices as we iterate through the list. The key insight is to calculate the difference (diff = target - current_number) and check if the difference exists in the map. This ensures we find the solution in a single pass.
+
+public static List<Integer> twoSum(List<Integer> nums, Integer target) {
+    Map<Integer,Integer> seen = new Map<Integer,Integer>();
+    for(Integer i = 0;i < nums.size();i++){
+        Integer diff = target - nums[i];
+        if (seen.containsKey(diff)) {
+            return new List<Integer>{seen.get(diff), i}; // Return the indices of the two numbers
+        }
+        seen.put(nums[i],i);
+    }
+    return new List<Integer> ();
+}
