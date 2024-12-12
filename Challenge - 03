@@ -1,0 +1,38 @@
+Segregate Even Odd Numbers
+
+Given a List of Integers (List<Integer>), write a function that segregates even and odd numbers. The function should put all even numbers first, and then odd numbers. You are required to modify the list that is passed. Try doing so without creating any extra lists, which would mean an O(1)  space complexity.
+
+public static void segregateEvenOdd(List<Integer> numbers) {
+    // Check if the list is null or contains one or no elements
+    if (numbers == null || numbers.size() <= 1) {
+        return; // No segregation needed
+    }
+
+    // Initialize pointers
+    int left = 0;
+    int right = numbers.size() - 1;
+
+    // Loop until the left pointer crosses the right pointer
+    while (left < right) {
+        // Increment the left pointer while it points to an even number
+        while (left < right && numbers.get(left) % 2 == 0) {
+            left++;
+        }
+
+        // Decrement the right pointer while it points to an odd number
+        while (left < right && numbers.get(right) % 2 != 0) {
+            right--;
+        }
+
+        // Swap elements if left points to an odd number and right points to an even number
+        if (left < right) {
+            int temp = numbers.get(left);
+            numbers.set(left, numbers.get(right));
+            numbers.set(right, temp);
+
+            // Move the pointers inward
+            left++;
+            right--;
+        }
+    }
+}
