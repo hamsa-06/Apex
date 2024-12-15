@@ -1,0 +1,13 @@
+Count Target in List
+
+Given a list of Integers nums and an Integer target, count number of times target is found in nums. If the target is not in the list, simply return 0.
+
+public Integer findTargetCount(List<Integer> nums, Integer target) {
+    Integer count =0;
+    for (Integer i =0;i<nums.size();i++){
+        if(nums[i] == target){
+            count = count+1;
+        }
+    }
+    return count;
+}
