@@ -1,0 +1,21 @@
+Add One
+
+A large integer number is given as a List of Integers from 0 to 9. You have to add 1 to that number and modify the list to represent the resulting number.
+
+Example 1:
+Input: number = [1,2,3]
+Output: [1,2,4]
+
+public void plusOne(List<Integer> numbers) {
+    for(Integer i = numbers.size() - 1; i >= 0; i--){
+        if(numbers[i] < 9){
+            numbers[i]++;
+            return;
+        }
+        else{
+            numbers[i] = 0;
+        }
+    }
+    numbers.add(0,1);
+}
+
