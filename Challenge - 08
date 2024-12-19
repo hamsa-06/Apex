@@ -1,20 +1,13 @@
-Add One
+Number Average
 
-A large integer number is given as a List of Integers from 0 to 9. You have to add 1 to that number and modify the list to represent the resulting number.
+Given a list of decimals, return the average rounded to two decimal places.
 
-Example 1:
-Input: number = [1,2,3]
-Output: [1,2,4]
-
-public void plusOne(List<Integer> numbers) {
-    for(Integer i = numbers.size() - 1; i >= 0; i--){
-        if(numbers[i] < 9){
-            numbers[i]++;
-            return;
-        }
-        else{
-            numbers[i] = 0;
-        }
+public Decimal average(List<Decimal> numbers){
+    Decimal sum = 0;
+    for (Decimal num : numbers) {
+         sum += num;
     }
-    numbers.add(0,1);
+    Decimal average = sum / numbers.size();
+    return average.setScale(2);
 }
+
