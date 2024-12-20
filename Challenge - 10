@@ -1,0 +1,25 @@
+Valid Anagram
+
+Two words are considered valid anagrams if they are composed of the exact same letters with the exact same frequency. Implement the method isAnagram that takes as input two strings s1 and s2, and returns true if the two words are anagrams. Assume that the two strings contain only lowercase alphabets a-z.
+
+public boolean isAnagram(String s1, String s2) {
+    if(s1 == null || s2 == null){
+        return false;
+    }
+    if(s1.length() != s2.length()){
+        return false;
+    }
+    
+    List<String> charList = new List<String>();
+    for (Integer i = 0; i < s1.length(); i++) {
+        charList.add(String.valueOf(s1.charAt(i)));
+    }
+    charList.sort();
+
+    List<String> charList2 = new List<String>();
+    for (Integer i = 0; i < s2.length(); i++) {
+        charList2.add(String.valueOf(s2.charAt(i)));
+    }
+    charList2.sort();
+    return charList.equals(charList2);
+}
