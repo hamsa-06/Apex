@@ -1,0 +1,10 @@
+public List<String> getNamesInAscOrder(List<String> accountNames){
+    if(accountNames == null){
+        return null;
+    }
+    
+    List<String> sortedName = new List<String>();
+    sortedName.addAll(accountNames);
+    sortedName.sort();
+    return sortedName;
+}
