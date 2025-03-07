@@ -1,0 +1,19 @@
+Implement the method selectUnreachableStudents that queries for and returns a list of all active apxio__Student__c records that are unreachable <br>
+because they are missing both an email and a phone number. Make sure to include the Id and Name fields in the result.The returned list should be sorted A-Z on Name.<br>
+<br>
+trigger OpportunityUpdate on Opportunity (after update) {
+	List<Task> lstOfTask = new List<Task>();
+    for(Opportunity opp:Trigger.new){
+        Opportunity newmap = Trigger.oldMap.get(opp.Id);
+        if(opp.StageName == 'Closed Won' && newmap.StageName !='Closed Won' && opp.Amount >100000){
+            Task t = new Task();
+            t.subject= 'Follow up the Client';
+            t.WhatId=opp.Id;	
+            t.Status='Not Started';
+            lstOfTask.add(t);
+        }			
+    }
+    if(!lstOfTask.isEmpty()){
+        insert lstOfTask;
+    }
+}
