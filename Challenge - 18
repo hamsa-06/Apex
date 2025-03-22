@@ -1,0 +1,28 @@
+Valid Palindrome<br>
+<br>
+A String is a considered a valid palindrome if it reads the same forwards and backwards. For the purpose of this problem, we consider a String to be a valid palindrome if it reads the same forwards and backwards after after converting all characters to lowercase, and removing all characters that are not a number or a letter.
+Given a String str, return true if is a valid palindrome given the definition above, and return false if it is not. Assume that the input will contain only English numbers and letters (0-9, a-z, A-Z) along with punctuation and spaces.<br>
+
+public Boolean isPalindrome(String str){
+    if(str == null){
+        return False;
+    }
+    String cleanedStr = '';
+    for(Integer i =0;i<str.length();i++){
+        String c = str.substring(i, i + 1).toLowerCase();
+        if (c >= 'a' && c <= 'z' || c >= '0' && c <= '9') {
+             cleanedStr += c;
+        }
+    }
+
+    Integer left = 0;
+    Integer right = cleanedStr.length()-1;
+    while(left<right){
+        if (!cleanedStr.substring(left, left + 1).equals(cleanedStr.substring(right, right + 1))) {
+            return False;
+        }
+        left++;
+        right--;
+    }
+    return True;
+}
