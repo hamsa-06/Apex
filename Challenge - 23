@@ -1,0 +1,21 @@
+Defragging
+You are given a List of Integers which represents memory with -1 representing empty space and all other Integers representing. Your task is to move all the empty spaces to the end of the list while maintaining the order of the rest of the elements.
+
+public void defragging(Integer[] memory)
+{
+    Integer count = 0;
+    List<Integer> compacted = new List<Integer>();
+    for(Integer num:memory){
+        if(num != -1){
+            compacted.add(num);
+        }
+        else{
+            count = count + 1;
+        }
+    }
+    for(Integer i =1;i<=count;i++){
+        compacted.add(-1);
+    }
+    memory.clear();
+    memory.addAll(compacted);
+}
