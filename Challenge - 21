@@ -1,0 +1,14 @@
+ Square a sorted list
+
+ Given a list of integers sorted in ascending order return a list of integers that contains the square of each value in the input list sorted in ascending order.
+
+ public static List<Integer> squareList(List<Integer> nums){
+    //solution here
+    List<Integer> square = new List<Integer>();
+    for(Integer i =0;i<nums.size();i++){
+        Integer squares = nums[i] * nums[i];
+        square.add(squares);
+    }
+    square.sort();
+    return square;
+}
