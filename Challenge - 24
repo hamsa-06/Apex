@@ -1,0 +1,14 @@
+Two Sum II
+Given a list of integers that are sorted in ascending order, return the indices of the two numbers that add up to a target value.
+
+public List<Integer> twoSum(List<Integer> nums, Integer target){
+    Map<Integer,Integer> map = new Map<Integer,Integer>();
+    for(Integer i = 0;i<nums.size();i++){
+        Integer com = target - nums[i];
+        if(map.containsKey(com)){
+            return new List<Integer> {map.get(com),i};
+        }
+        map.put(nums[i],i);
+    }
+    return new List<Integer>();
+}
