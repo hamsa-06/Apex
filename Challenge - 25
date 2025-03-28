@@ -1,0 +1,14 @@
+Two Sum
+You are given a list of unsorted integers and a target value. If the list contains two values that add up to target, return a list containing the indexes of the two numbers. You may not use a number more than once. Every input will have a solution.
+
+public static List<Integer> twoSum(List<Integer> nums, Integer target) {
+    Map<Integer, Integer> maps = new Map<Integer, Integer>(); 
+    for (Integer i = 0; i < nums.size(); i++) {
+        Integer complement = target - nums[i];       
+        if (maps.containsKey(complement)) {
+            return new List<Integer>{maps.get(complement), i}; 
+        }    
+        maps.put(nums[i], i); 
+    }
+    return new List<Integer>();
+}
