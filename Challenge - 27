@@ -1,0 +1,17 @@
+Binary Search Opportunites
+
+public static Integer search(List<Opportunity> opportunities, Integer target){
+    Integer left = 0, right = opportunities.size() - 1;
+    while (left <= right) {
+        Integer mid = left + (right - left) / 2;
+        Integer midAmount = Integer.valueOf(opportunities[mid].Amount);
+        if (midAmount == target) {
+            return mid; 
+        } else if (midAmount < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1; 
+        }
+    }
+    return -1; 
+}
