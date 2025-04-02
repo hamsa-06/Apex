@@ -1,0 +1,10 @@
+Implement the method accountIds that takes as input a list of Opportunity records, and returns a set containing IDs of related accounts.
+public Set<Id> accountIds(List<Opportunity> opps) {
+    Set<Id> accId = new Set<Id>();
+    for(Opportunity o:opps){
+        if(o.AccountId != null){
+            accId.add(o.AccountId);
+        }
+    }
+    return accId;
+}
