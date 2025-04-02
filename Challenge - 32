@@ -1,0 +1,13 @@
+Duplicate Integers
+Implement the method containsDuplicates that takes as input a list of integers, returns true if the list has more than one occurence of the same number, and returns false if every element in the list is unique.
+
+public Boolean containsDuplicates(List<Integer> nums) {
+    Set<Integer> res = new Set<Integer>(nums);
+    if(nums.size() == res.size()){
+        return False;
+    }
+    else{
+        return True;
+    }
+
+}
